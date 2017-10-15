@@ -1,18 +1,7 @@
-/*
-#[derive(Debug)]
-struct Character {
-    name: String,
-    strength: u8,
-    dexterity: u8,
-    constitution: u8,
-    intelligence: u8,
-    wisdom: u8,
-    charisma: u8
-}
-*/
-
 pub trait Constitution {
-    fn constitution_bonus(&self) -> u8;
+    fn constitution_bonus(&self) -> u8 {
+        0
+    }
 }
 
 struct Dwarf {
@@ -25,15 +14,21 @@ impl Constitution for Dwarf {
     }
 }
 
+struct HalfOrc {
+    name: String
+}
+
+impl Constitution for HalfOrc {
+    fn constitution_bonus(&self) -> u8 {
+        1
+    }
+}
+
 struct Elf {
     name: String
 }
 
 impl Constitution for Elf {
-    fn constitution_bonus(&self) -> u8 {
-        0
-    }
-
 }
 
 fn main() {
@@ -42,16 +37,8 @@ fn main() {
 
     let my_elf = Elf { name: String::from("Nell Lightfooted") };
     println!("Here is the constitution bonus for Nell Lightfooted, the elf: {}", my_elf.constitution_bonus());
-/*
-    let my_character = Character {
-        name: String::from("Rian Everstar"),
-        strength: 8,
-        dexterity: 8,
-        constitution: 9,
-        intelligence: 5,
-        wisdom: 5,
-        charisma: 7
-    };
-    println!("Here is my character {:?}", my_character)
-*/
+
+
+    let my_half_orc = HalfOrc { name: String::from("Nell Heavyfooted") };
+    println!("Here is the constitution bonus for Nell Heavyfooted, the half-orc: {}", my_half_orc.constitution_bonus());
 }
