@@ -84,7 +84,7 @@ pub struct Necromancy {
 
 impl Cast for Necromancy {
     fn cast(&self) {
-        println!("I just cast a Neuromancy");
+        println!("I just cast a Necromancy");
     }
 }
 
